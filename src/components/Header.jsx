@@ -9,7 +9,7 @@ const Header = () => {
   const location = useLocation();
 
   // Determine if we are on the home page
-  const isHome = location.pathname === '/';
+  const isHome = location.pathname === '/shuddhira_naturals/' || location.pathname === '/shuddhira_naturals';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,8 +21,8 @@ const Header = () => {
   }, []);
 
   const scrollToSection = (sectionId) => {
-    if (location.pathname !== '/') {
-      navigate('/');
+    if (!isHome) {
+      navigate('/shuddhira_naturals/');
       setTimeout(() => {
         const element = document.getElementById(sectionId);
         if (element) {
@@ -31,7 +31,6 @@ const Header = () => {
       }, 100);
       return;
     }
-    
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -51,11 +50,11 @@ const Header = () => {
         <div className="flex justify-between items-center h-16 lg:h-20">
           {/* Logo */}
           <button 
-            onClick={() => navigate('/')}
+            onClick={() => navigate('/shuddhira_naturals/')}
             className="flex items-center space-x-2 cursor-pointer hover:opacity-80 transition-opacity duration-300"
           >
             <img 
-              src="/logo.png" 
+              src="/shuddhira_naturals/logo.png" 
               alt="Shuddhira Naturals Logo" 
               className="w-10 h-10 lg:w-12 lg:h-12"
             />

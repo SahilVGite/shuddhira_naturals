@@ -15,7 +15,7 @@ function App() {
         <Header />
         <main>
           <Routes>
-            <Route path="/" element={
+            <Route path="/shuddhira_naturals" element={
               <>
                 <Hero />
                 <About />

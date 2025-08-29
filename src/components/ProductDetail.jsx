@@ -101,8 +101,8 @@ const ProductDetail = () => {
         <div className="text-center">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Product not found</h2>
           <button 
-            onClick={() => navigate('/')}
-            className="px-6 py-3 bg-amber-500 text-white rounded-lg hover:bg-amber-600 transition-colors"
+            onClick={() => navigate('/shuddhira_naturals')}
+            className="px-6 py-3 bg-amber-500 text-white cursor-pointer rounded-lg hover:bg-amber-600 transition-colors"
           >
             Go Back Home
           </button>
@@ -120,7 +120,7 @@ const ProductDetail = () => {
   };
 
   const scrollToContact = () => {
-    navigate('/', { state: { scrollToContact: true, productName: product.name } });
+    navigate('/shuddhira_naturals', { state: { scrollToContact: true, productName: product.name } });
   };
 
   return (
@@ -236,7 +236,7 @@ const ProductDetail = () => {
               <div className="space-y-4">
                 <button 
                   onClick={scrollToContact}
-                  className="w-full flex items-center justify-center space-x-2 px-6 py-4 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg"
+                  className="w-full flex items-center justify-center space-x-2 px-6 py-4 text-white font-semibold cursor-pointer rounded-xl transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg"
                   style={{ backgroundColor: 'rgb(190, 150, 63)' }}
                 >
                   <MessageCircle className="w-5 h-5" />

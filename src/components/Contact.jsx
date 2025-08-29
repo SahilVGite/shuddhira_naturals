@@ -16,11 +16,15 @@ const Contact = () => {
 
   useEffect(() => {
     if (location.state?.scrollToContact) {
+      // Ensure correct base path for GitHub Pages
+      if (window.location.pathname !== '/shuddhira_naturals/' && window.location.pathname !== '/shuddhira_naturals') {
+        window.location.href = '/shuddhira_naturals/#contact';
+        return;
+      }
       const element = document.getElementById('contact');
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
-      
       if (location.state?.productName) {
         setFormData(prev => ({
           ...prev,

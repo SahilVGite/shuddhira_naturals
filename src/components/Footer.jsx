@@ -6,8 +6,8 @@ const Footer = () => {
   const navigate = useNavigate();
 
   const scrollToSection = (sectionId) => {
-    if (window.location.pathname !== '/') {
-      navigate('/');
+    if (window.location.pathname !== '/shuddhira_naturals/' && window.location.pathname !== '/shuddhira_naturals') {
+      navigate('/shuddhira_naturals/');
       setTimeout(() => {
         const element = document.getElementById(sectionId);
         if (element) {
@@ -16,7 +16,6 @@ const Footer = () => {
       }, 100);
       return;
     }
-    
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -30,7 +29,7 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="lg:col-span-2">
             <button 
-              onClick={() => navigate('/')}
+              onClick={() => navigate('/shuddhira_naturals/')}
               className="flex items-center space-x-2 mb-6 hover:opacity-80 transition-opacity duration-300"
             >
               <img 
