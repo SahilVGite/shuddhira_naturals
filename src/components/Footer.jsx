@@ -33,7 +33,7 @@ const Footer = () => {
               className="flex items-center space-x-2 mb-6 hover:opacity-80 transition-opacity duration-300"
             >
               <img 
-                src="/logo.png" 
+                src="/shuddhira_naturals/logo.png" 
                 alt="Shuddhira Naturals Logo" 
                 className="w-10 h-10"
               />
