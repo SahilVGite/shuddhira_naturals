@@ -196,12 +196,12 @@ const ProductDetail = () => {
           {/* Product Info */}
           <div className="space-y-6">
             <div>
-              <div className="flex items-center space-x-2 mb-2">
+              {/* <div className="flex items-center space-x-2 mb-2">
                 <span className="px-3 py-1 text-xs font-semibold rounded-full text-white"
                   style={{ backgroundColor: 'rgb(190, 150, 63)' }}>
                   {product.category}
                 </span>
-              </div>
+              </div> */}
               <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">{product.name}</h1>
               <div className="flex items-center space-x-4 mb-4">
                 <div className="flex items-center space-x-1">

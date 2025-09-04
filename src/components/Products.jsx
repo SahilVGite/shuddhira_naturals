@@ -10,10 +10,17 @@ const Products = () => {
   const handleViewDetails = (id) => {
     navigate(`/product/${id}`);
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  }  
+  }
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   const products = [
-    { 
+    {
       id: 1,
       name: "Pure Turmeric Face Pack",
       category: "Skincare",
@@ -73,16 +80,15 @@ const Products = () => {
 
   const handleViewMore = () => {
     setVisibleCount((prev) => Math.min(prev + 3, products.length));
-  }  
+  }
 
   return (
     <section id="products" className="py-20 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div 
+        <div
           ref={ref}
-          className={`transition-all duration-1000 ${
-            isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
+          className={`transition-all duration-1000 ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
         >
           {/* Section Header */}
           <div className="text-center mb-16">
@@ -97,44 +103,55 @@ const Products = () => {
           {/* Products Grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.slice(0, visibleCount).map((product, index) => (
-              <div 
+              <div
                 key={product.id}
-                className={`group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-4 overflow-hidden ${
-                  isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}
+                className={`group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-4 overflow-hidden ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                  }`}
                 style={{
                   transitionDelay: `${index * 150}ms`
                 }}
               >
                 <div className="relative overflow-hidden">
-                  <img 
+                  <img
                     src={product.image}
                     alt={product.name}
                     className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500"
                   />
-                  <div className="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-semibold text-white"
+                  {/* <div className="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-semibold text-white"
                     style={{ backgroundColor: 'rgb(190, 150, 63)' }}>
                     {product.category}
-                  </div>
+                  </div> */}
                   <div className="absolute top-4 right-4 flex items-center space-x-1 bg-white/90 px-2 py-1 rounded-full">
                     <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                     <span className="text-sm font-semibold text-gray-900">{product.rating}</span>
                   </div>
                 </div>
-                
+
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{product.name}</h3>
-                  <p className="text-gray-600 mb-4 text-sm leading-relaxed">{product.description}</p>
-                  
-                  <div className="flex items-center justify-between">
-                    <span className="text-2xl font-bold" style={{ color: 'rgb(190, 150, 63)' }}>
-                      {product.price}
+                  <div className='items-start justify-between lg:flex md:flex'>
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">{product.name}</h3>
+                      <p className="text-gray-600 mb-4 text-sm leading-relaxed">{product.description}</p>
+                    </div>
+                    <span className='flex items-center gap-1.5 mb-2.5 lg:mb-0 md:mb-0'>
+                      <span className="text-2xl font-bold" style={{ color: 'rgb(190, 150, 63)' }}>{product.price}</span>
+                      <span className="text-1xl font-light line-through" style={{ color: '#c9c9c9' }}>{product.price}</span>
                     </span>
-                    <button 
-                      onClick={() => handleViewDetails(product.id)}
+                  </div>
+
+                  <div className="flex items-center justify-between">
+                    <button
+                      onClick={() => scrollToSection('contact')}
                       className="flex items-center space-x-2 px-4 py-2 rounded-full text-white font-semibold cursor-pointer transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
                       style={{ backgroundColor: 'rgb(190, 150, 63)' }}>
                       <MessageCircle className="w-4 h-4" />
+                      <span>Enquire Now</span>
+                    </button>
+                    <button
+                      onClick={() => handleViewDetails(product.id)}
+                      className="flex items-center space-x-2 rounded-full underline text-[#c9c9c9] font-semibold cursor-pointer transition-all duration-300 transform hover:text-blue-950"
+                      styl={{ backgroundColor: 'rgb(190, 150, 63)' }}>
+                      {/* <MessageCircle className="w-4 h-4" /> */}
                       <span>View Details</span>
                     </button>
                   </div>
@@ -147,8 +164,8 @@ const Products = () => {
           {visibleCount < products.length && (
             <div className="text-center mt-16">
               <button className="px-8 py-4 border-2 font-semibold rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
-                style={{ 
-                  borderColor: 'rgb(190, 150, 63)', 
+                style={{
+                  borderColor: 'rgb(190, 150, 63)',
                   color: 'rgb(190, 150, 63)',
                   backgroundColor: 'transparent'
                 }}

@@ -58,7 +58,7 @@ const Header = () => {
               alt="Shuddhira Naturals Logo" 
               className="w-10 h-10 lg:w-12 lg:h-12"
             />
-            <span className={`text-xl lg:text-2xl font-bold transition-colors duration-300 ${
+            <span className={`text-xl lg:text-2xl font-bold font-(family-name:--PlayfairFont) transition-colors duration-300 ${
               isHome
                 ? (isScrolled ? 'text-gray-900' : 'text-white')
                 : 'text-gray-900'
